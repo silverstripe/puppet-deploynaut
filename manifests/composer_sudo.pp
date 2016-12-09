@@ -1,5 +1,5 @@
-# allows `$user` to sudo as `$sudo_composer_user`
-# e.g. `www-data` can run `sudo -u $sudo_composer_user composer install`
+# allows `$user` to sudo as `$composer_user`
+# e.g. `www-data` can run `sudo -u $composer_user composer install`
 
 class deploynaut::composer_sudo (
 	$user = "www-data",
@@ -9,7 +9,7 @@ class deploynaut::composer_sudo (
 	validate_string($user)
 	validate_string($composer_user)
 
-	file { "/etc/sudoers.d/10_${sudo_composer_user}":
+	file { "/etc/sudoers.d/10_${composer_user}":
 		ensure => file,
 		content => template('deploynaut/sudo_composer.erb'),
 		owner => "root",
