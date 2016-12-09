@@ -17,7 +17,8 @@ class deploynaut::composer (
 		validate_string($composer_group)
 
 		user { $composer_user:
-			ensure => "present"
+			ensure => "present",
+			managehome => true
 		} ->
 		file { $composer_dir:
 			ensure => "directory",
