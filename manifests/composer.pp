@@ -14,7 +14,7 @@ class deploynaut::composer (
 	# setup the .composer directory for a given user
 	if $composer_dir != undef {
 		validate_string($composer_user)
-		validate_string($composer_group
+		validate_string($composer_group)
 
 		user { $composer_user:
 			ensure => "present"
