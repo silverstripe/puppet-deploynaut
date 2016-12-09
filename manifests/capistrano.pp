@@ -1,7 +1,7 @@
 class deploynaut::capistrano {
 
 	exec { "update_rubygems":
-		path => '/usr/bin:/usr/sbin:/bin',
+		path => '/usr/local/bin:/usr/bin:/usr/sbin:/bin',
 		refreshonly => true
 	}
 
