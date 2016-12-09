@@ -1,6 +1,5 @@
 class deploynaut::composer (
 	$source = "https://getcomposer.org/download/1.2.4/composer.phar",
-	$manage_composer_dir = false,
 	$composer_dir = undef,
 	$composer_user = undef,
 	$composer_group = undef
