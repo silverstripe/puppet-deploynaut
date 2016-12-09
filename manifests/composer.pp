@@ -2,7 +2,8 @@ class deploynaut::composer (
 	$source = "https://getcomposer.org/download/1.2.4/composer.phar",
 	$composer_dir = undef,
 	$composer_user = undef,
-	$composer_group = undef
+	$composer_group = undef,
+	$manage_composer_user = false
 ) {
 	servicetools::install_file { "/usr/local/bin/composer":
 		source => $source,
@@ -16,10 +17,13 @@ class deploynaut::composer (
 		validate_string($composer_user)
 		validate_string($composer_group)
 
-		user { $composer_user:
-			ensure => "present",
-			managehome => true
-		} ->
+		if $manage_composer_user == true {
+			user { $composer_user:
+				ensure => "present",
+				managehome => true
+			}
+		}
+
 		file { $composer_dir:
 			ensure => "directory",
 			owner => $composer_user,
