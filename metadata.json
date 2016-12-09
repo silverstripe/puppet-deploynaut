@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "SilverStripe Ltd",
   "license": "BSD-3-Clause",
-  "summary": "Puppet module for setting up environment for running deploynaut",
+  "summary": "Puppet module for setting up environment to run deploynaut",
   "source": "https://github.com/silverstripe/puppet-deploynaut",
   "project_page": "https://github.com/silverstripe/puppet-deploynaut",
   "dependencies": [
