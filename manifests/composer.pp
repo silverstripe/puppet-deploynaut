@@ -22,7 +22,7 @@ class deploynaut::composer (
 		file { $composer_dir:
 			ensure => "directory",
 			owner => $composer_user,
-			group => $composer_group
+			group => $composer_group,
 			mode => "0755"
 		}
 	}
