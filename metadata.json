@@ -1,0 +1,29 @@
+{
+  "name": "silverstripe-deploynaut",
+  "version": "1.0.0",
+  "author": "SilverStripe Ltd",
+  "license": "BSD-3-Clause",
+  "summary": "Puppet module for setting up environment for running deploynaut",
+  "source": "https://github.com/silverstripe/puppet-deploynaut",
+  "project_page": "https://github.com/silverstripe/puppet-deploynaut",
+  "dependencies": [
+    {
+      "name": "silverstripe/servicetools",
+      "version_requirement": ">= 1.0.0 <2.0.0"
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.0.0 < 5.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "8"
+      ]
+    }
+  ]
+}
