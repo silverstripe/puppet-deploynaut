@@ -6,7 +6,7 @@ class deploynaut::params(
 	$service_manage = true,
 	$service_name = "php-resque",
 	$composer_user = "www-data",
-	$composer_source = "https://getcomposer.org/download/1.2.4/composer.phar",
+	$composer_source = "https://getcomposer.org/download/1.3.1/composer.phar",
 ) {
 
 }
