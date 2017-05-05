@@ -5,6 +5,7 @@ class deploynaut (
 	$service_ensure = $deploynaut::params::service_ensure,
 	$service_manage = $deploynaut::params::service_manage,
 	$service_name = $deploynaut::params::service_name,
+	$service_workers = $deploynaut::params::service_workers,
 	$composer_user = $deploynaut::params::composer_user,
 	$composer_source = $deploynaut::params::composer_source,
 ) inherits deploynaut::params {
