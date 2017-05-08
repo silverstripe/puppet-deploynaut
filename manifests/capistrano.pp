@@ -13,7 +13,19 @@ class deploynaut::capistrano {
 		provider => "gem",
 		notify => Exec["update_rubygems"]
 	} ->
-	package { "net-ssh":
+  package { "rack":
+    ensure => "1.6.6",
+    provider => "gem",
+  } ->
+  package { "vegas":
+    ensure => "0.1.11",
+    provider => "gem",
+  } ->
+  package { "sinatra":
+    ensure => "1.4.8",
+    provider => "gem",
+  } ->
+  package { "net-ssh":
 		ensure => "3.1.1",
 		provider => "gem"
 	} ->
