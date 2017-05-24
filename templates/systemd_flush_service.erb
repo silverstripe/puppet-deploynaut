@@ -1,0 +1,14 @@
+[Unit]
+Description=<%= @service_name %>-flush
+BindsTo=<%= @service_name %>.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/php <%= @site_root %>/framework/cli-script.php dev flush=1
+User=www-data
+SyslogIdentifier=<%= @service_name %>-flush
+
+[Install]
+WantedBy=<%= @service_name %>.target
+
