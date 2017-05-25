@@ -1,0 +1,32 @@
+# Please note systemd now controls multiple workers directly.
+# Control of all workers jointly is done through the <%= @service_name %>.target.
+#
+# To restart all workers:
+#   systemctl restart <%= @service_name %>.target
+# To restart one particular worker:
+#   systemctl restart <%= @service_name %>@1.service
+#
+
+[Unit]
+Description=<%= @service_name %>
+BindsTo=<%= @service_name %>.target
+After=<%= @service_name %>-flush.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/php <%= @site_root %>/framework/cli-script.php dev/resque/run queue=* count=1
+User=www-data
+Restart=on-failure
+SyslogIdentifier=<%= @service_name %>
+
+# Sending SIGQUIT ensures the worker exits gracefully: it signals <%= @service_name %> to terminate after
+# the current job has finished. To have this work properly, we must use KillMode=process, otherwise
+# subshells will be terminated (and the job will die).
+KillMode=process
+KillSignal=SIGQUIT
+
+# After this time SIGKILL will be sent, guaranteeing worker restart, at a cost of user jobs being terminated.
+TimeoutStopSec=24hours
+
+[Install]
+WantedBy=<%= @service_name %>.target
