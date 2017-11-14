@@ -13,6 +13,14 @@ class deploynaut::capistrano {
     provider => 'gem',
     notify   => Exec['update_rubygems']
   }
+  -> package { 'redis':
+    ensure   => '3.3.5',
+    provider => 'gem'
+  }
+  -> package { 'redis-namespace':
+    ensure   => '1.5.3',
+    provider => 'gem'
+  }
   -> package { 'rack':
     ensure   => '1.6.6',
     provider => 'gem',
