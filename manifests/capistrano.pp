@@ -37,9 +37,5 @@ class deploynaut::capistrano {
     ensure   => '0.0.4',
     provider => 'gem'
   }
-  -> package { 'resque':
-    ensure   => '1.26.0',
-    provider => 'gem'
-  }
 
 }
