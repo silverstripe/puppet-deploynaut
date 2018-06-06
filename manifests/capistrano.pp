@@ -26,7 +26,7 @@ class deploynaut::capistrano {
     provider => 'gem',
   }
   -> package { 'net-ssh':
-    ensure   => '3.1.1',
+    ensure   => '4.2.0',
     provider => 'gem'
   }
   -> package { 'capistrano':
@@ -37,5 +37,20 @@ class deploynaut::capistrano {
     ensure   => '0.0.4',
     provider => 'gem'
   }
-
+  -> package { 'net-ssh-gateway':
+    ensure => '2.0.0',
+    provider => 'gem'
+  }
+  -> package { 'net-scp':
+    ensure => '1.2.1',
+    provider => 'gem'
+  }
+  -> package { 'net-sftp':
+    ensure => '2.1.2',
+    provider => 'gem'
+  }
+  -> package { 'highline':
+    ensure => '1.7.10',
+    provider => 'gem'
+  }
 }
