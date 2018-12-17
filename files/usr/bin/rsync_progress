@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# if `pv` is installed (which seems to be installed on debian base images), use it to show a progress report
+if [[ -x "$(command -v pv)" ]]; then
+    # find out how many files that will be transferred
+    NUM_FILES=$(/usr/bin/rsync "$@" --dry-run --no-h --stats | grep '^Number of files' | awk '{ print $4 }')
+    # execute rsync, but add flags that works with pv and pipe the stdout (one line per file transferred) to pv
+    /usr/bin/rsync --info=stats0,name2 -v "$@" | /usr/bin/pv --force --line-mode --eta --progress --interval 2 --width 80 --size ${NUM_FILES} > /dev/null
+else
+	/usr/bin/rsync "$@"
+fi
