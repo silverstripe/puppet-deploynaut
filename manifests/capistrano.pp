@@ -9,7 +9,7 @@ class deploynaut::capistrano {
     ensure => 'present'
   }
   -> package { 'rubygems-update':
-    ensure   => '2.6.8',
+    ensure   => '2.7.6',
     provider => 'gem',
     notify   => Exec['update_rubygems']
   }
