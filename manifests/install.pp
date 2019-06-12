@@ -16,7 +16,7 @@ class deploynaut::install inherits deploynaut {
   file {'/usr/bin/rsync_progress':
     owner   => root,
     group   => root,
-    mode    => 755,
+    mode    => '0755',
     source  => 'puppet:///modules/deploynaut/usr/bin/rsync_progress',
   }
 }
