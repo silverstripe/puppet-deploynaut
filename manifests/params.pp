@@ -8,6 +8,7 @@ class deploynaut::params(
   $service_workers = '4',
   $composer_user = 'www-data',
   $composer_version = '1.8.6',
+  $composer_download_options = [],
 ) {
 
 }
