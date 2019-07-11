@@ -9,10 +9,11 @@ class deploynaut::install inherits deploynaut {
 
   $composer_path = "/usr/local/bin/composer-${composer_version}"
   servicetools::install_file { $composer_path:
-    source => "https://getcomposer.org/download/${composer_version}/composer.phar",
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0755'
+    source      => "https://getcomposer.org/download/${composer_version}/composer.phar",
+    owner       => 'root',
+    group       => 'root',
+    mode        => '0755',
+    env_options => $composer_download_options
   } ->
   file { '/usr/local/bin/composer':
     ensure => link,
