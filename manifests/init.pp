@@ -7,7 +7,7 @@ class deploynaut (
   $service_name = $deploynaut::params::service_name,
   $service_workers = $deploynaut::params::service_workers,
   $composer_user = $deploynaut::params::composer_user,
-  $composer_source = $deploynaut::params::composer_source,
+  $composer_version = $deploynaut::params::composer_version,
 ) inherits deploynaut::params {
 
   validate_string($site_root)
