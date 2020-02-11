@@ -9,7 +9,7 @@
 
 [Unit]
 Description=<%= @service_name %>
-BindsTo=<%= @service_name %>.target
+PartOf=<%= @service_name %>.target
 After=<%= @service_name %>-flush.service
 
 [Service]

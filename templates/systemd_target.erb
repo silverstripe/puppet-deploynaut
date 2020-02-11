@@ -1,6 +1,6 @@
 [Unit]
 After=syslog.target network.target
-Requires=<%= @service_name %>-flush.service <% for w in 1..scope.lookupvar('last_wanted_worker') do %>php-resque@<%= w %>.service <% end %>
+Wants=<%= @service_name %>-flush.service <% for w in 1..scope.lookupvar('last_wanted_worker') do %>php-resque@<%= w %>.service <% end %>
 # Force this target to block upon "stop", until all workers have gracefully exited.
 # This makes it easier to write deploy scripts that rely on php-resque being stopped.
 Before=<%= @service_name %>-flush.service <% for w in 1..scope.lookupvar('last_wanted_worker') do %>php-resque@<%= w %>.service <% end %>
