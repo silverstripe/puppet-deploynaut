@@ -1,6 +1,6 @@
 [Unit]
 Description=<%= @service_name %>-flush
-BindsTo=<%= @service_name %>.target
+PartOf=<%= @service_name %>.target
 
 [Service]
 Type=oneshot
