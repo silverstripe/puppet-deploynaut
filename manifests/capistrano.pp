@@ -6,7 +6,7 @@ class deploynaut::capistrano {
   }
 
   package { 'ruby':
-    ensure => 'present'
+    ensure => '2.1.0'
   }
   -> package { 'rubygems-update':
     ensure   => '2.6.8',
